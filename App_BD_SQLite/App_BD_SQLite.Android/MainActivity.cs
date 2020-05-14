@@ -18,10 +18,17 @@ namespace App_BD_SQLite.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            //criação no Banco de Dados
+            string dbName = "dbAula.db3";
+            //retorno do local de armazenamento do BD
+            string dbPath = AcessoArquivo.GetLocalFilePath(dbName);
+
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            //LoadApplication(new App());
+            //passagem de paramentros pelo construtor da página do local e nome do BD
+            LoadApplication(new App(dbPath, dbName));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

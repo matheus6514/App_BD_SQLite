@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App_BD_SQLite.View.ListarDetail">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Lista de Registros de Notas" FontSize="Medium" TextColor="White" HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView x:Name="ListaNotas" HasUnevenRows="True" SeparatorColor="Red" Margin="15" BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Id,StringFormat='Cógido: {0}'}"/>
+                                <Label Text="{Binding Titutlo,StringFormat='Título: {0}'}"/>
+                                <Label Text="{Binding Dados,StringFormat='Dados: {0}'}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

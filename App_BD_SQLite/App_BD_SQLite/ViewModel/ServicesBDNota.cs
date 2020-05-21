@@ -60,5 +60,38 @@ namespace App_BD_SQLite.ViewModel
             }
             return Lista;
         }
+
+        public void Alterar(ModelNota nota)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(nota.Titulo))
+                    throw new Exception("Título da nota não informado");
+                if (string.IsNullOrEmpty(nota.Dados))
+                    throw new Exception("Dados da nota não informados");
+                if (nota.Id <= 0)
+                    throw new Exception("Id da nota não informado");
+
+                int result = conn.Update(nota);
+                StatusMessage = string.Format("{0} Registros alterados", result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Erro: {0}", ex.Message));
+            }
+        }
+
+        public void Excluir(int id)
+        {
+            try
+            {
+                int result = conn.Table<ModelNota>().Delete(r => r.Id == id);
+                StatusMessage = string.Format("{0} Registros deletados.", result);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(string.Format("Erro: {0}", ex.Message));
+            }
+        }
     }
 }

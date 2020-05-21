@@ -11,14 +11,13 @@
                 <Label Text="Lista de Registros de Notas" FontSize="Medium" TextColor="White" HorizontalOptions="CenterAndExpand"
                        FontAttributes="Bold"/>
             </StackLayout>
-            <ListView x:Name="ListaNotas" HasUnevenRows="True" SeparatorColor="Red" Margin="15" BackgroundColor="White">
+            <ListView x:Name="ListaNotas" HasUnevenRows="True" SeparatorColor="Red" Margin="15" BackgroundColor="White" ItemSelected="ListaNotas_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Id,StringFormat='Cógido: {0}'}"/>
-                                <Label Text="{Binding Titutlo,StringFormat='Título: {0}'}"/>
-                                <Label Text="{Binding Dados,StringFormat='Dados: {0}'}"/>
+                                <Label Text="{Binding Titutlo,StringFormat='Título: {0}'}" FontSize="Large"/>
+                                <Label Text="{Binding Dados,StringFormat='Dados: {0}'}" FontSize="Medium"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

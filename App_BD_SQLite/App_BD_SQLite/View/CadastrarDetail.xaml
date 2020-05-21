@@ -19,6 +19,10 @@
                 <Button x:Name="btSalvar" Text="Inserir"
                         Clicked="btSalvar_Clicked"
                         HorizontalOptions="FillAndExpand"/>
+                <Button x:Name="btExcluir" Text="Excluir"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="btExcluir_Clicked"
+                        IsVisible="False"/>
                 <Button x:Name="btCancelar" Text="Cancelar"
                         Clicked="btCancelar_Clicked"
                         HorizontalOptions="FillAndExpand"/>

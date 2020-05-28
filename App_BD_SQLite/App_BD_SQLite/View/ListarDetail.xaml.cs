@@ -33,5 +33,36 @@ namespace App_BD_SQLite.View
             MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
             p.Detail = new NavigationPage(new CadastrarDetail(nota));
         }
+
+        private void SwFavorito_Toggled(object sender, ToggledEventArgs e)
+        {
+            //criação do objeto da classe ServiceBDNota
+            ServicesBDNota dbNotas = new ServicesBDNota(App.DbPath);
+            //ação de quando o control do switch estiver selecionado
+            if(swfavorito.IsToggled)
+            {
+                ListaNotas.ItemsSource = dbNotas.ListarFavoritos();    
+            }else // ação de quando o control do switch NÃO estiver selecionado
+            {
+                //faz a busca pela lista inteira
+                AtualizaLista();
+            }
+        }
+
+        private void btLocalizar_Clicked(object sender, EventArgs e)
+        {
+            String titulo="";//captura do texto da busca
+            if(txtNota.Text != null) titulo = txtNota.Text;
+            ServicesBDNota dbNotas = new ServicesBDNota(App.DbPath);
+            //chamada do método de busca por título da nota
+            ListaNotas.ItemsSource = dbNotas.Localizar(titulo);
+            txtNota.Text = ""; //Limpa o text
+        }
+
+        private void btTodos_Clicked(object sender, EventArgs e)
+        {
+            //retorna a lista inteira
+            AtualizaLista();
+        }
     }
 }

@@ -7,20 +7,54 @@
              x:Class="App_BD_SQLite.View.HomeDetail">
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightSeaGreen">
-            <StackLayout Grid.Row="1"
-                         Spacing="10"
-                         Margin="10"
-                         Padding="10"
-                         BackgroundColor="#F3F2F0">
-                <Label Text="App destinado a Con~exão com Banco de Dados local (SQLite)"
-                       HorizontalOptions="Center"
+            <Grid BackgroundColor="LightSeaGreen">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinitions Width="*"/>
+                    <ColumnDefinitions Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Spacing="10" Grid.ColumnSpan="2" Grid.Column="0"  Grid.Row="0"
+                             Margin="10"
+                             Padding="10"
+                             BackgroundColor="#F3F2F0">
+                    <Label Text="App destinado a Con~exão com Banco de Dados local (SQLite)"
+                           HorizontalOptions="Center"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                    <Label Text="Principais operações CRUD (Create, Read, Update, Delete)"
+                           HorizontalOptions="Center"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+                <Image Source="cadastrar.png" Grid.Column="0" Grid.Row="2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizers
+                            Tapped="TapGestureRecognizers_Cadastrar"
+                            NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                
+                <Image Source="pesquisar.png" Grid.Column="1" Grid.Row="2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizers
+                            Tapped="TapGestureRecognizers_Pesquisar"
+                            NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Cadastrar" Grid.Column="0" Grid.Row="3"
+                       HorizontalTextAlignment="Center"
                        FontSize="Large"
                        FontAttributes="Bold"/>
-                <Label Text="Principais operações CRUD (Create, Read, Update, Delete)"
-                       HorizontalOptions="Center"
+                <Label Text="Pesquisar" Grid.Column="1" Grid.Row="3"
+                       HorizontalTextAlignment="Center"
                        FontSize="Large"
                        FontAttributes="Bold"/>
-            </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

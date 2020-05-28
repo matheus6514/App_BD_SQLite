@@ -93,5 +93,33 @@ namespace App_BD_SQLite.ViewModel
                 throw new Exception(string.Format("Erro: {0}", ex.Message));
             }
         }
+
+        public List<ModelNota> Localizar(String Titulo)
+        {
+            List<ModelNota> lista = new List<ModelNota>();
+            try
+            {
+                var resp = from p in conn.Table<ModelNota>() where p.Titulo.ToLower().Contains(titulo.ToLower()) select p;
+                lista = resp.ToList();
+            }catch (Exception ex)
+            {
+                throw new Exception(String.Format("ERRO: {0}", ex.Message));
+            }
+            return lista;
+        }
+
+        public List<ModelNota> LocalizarFavorito(String titulo)
+        {
+            List<ModelNota> lista = new List<ModelNota>();
+            try
+            {
+                var resp = from p in conn.Table<ModelNota>() where p.Favorito == true select p;
+                lista = resp.ToList();
+            }catch (Exception ex)
+            {
+                throw new Exception(String.Format("ERRO: {0}", ex.Message));
+            }
+            return lista;
+        }
     }
 }

@@ -11,6 +11,21 @@
                 <Label Text="Lista de Registros de Notas" FontSize="Medium" TextColor="White" HorizontalOptions="CenterAndExpand"
                        FontAttributes="Bold"/>
             </StackLayout>
+                <Label Text="Exibir apenas as notas favoritas:" FontSize="Medium" TextColor="White" HorizontalOptions="Start"
+                       FontAttributes="Bold"/>
+                <Switch x:Name="swFavorito" HorizontalOptions="End"
+                        Taggled="SwFavorito_Toggled"/>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="txtNota" Keyboard="Plain" Placeholder="Título da nota"
+                       HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="btLocalizar" Text="Localizar" Clicked="btLocalizar_Clicked"/>
+                <Button x:Name="btTodos" Text="Todos" Clicked="btTodos_Clicked"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                
+            </StackLayout>
+            
             <ListView x:Name="ListaNotas" HasUnevenRows="True" SeparatorColor="Red" Margin="15" BackgroundColor="White" ItemSelected="ListaNotas_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -16,5 +16,17 @@ namespace App_BD_SQLite.View
         {
             InitializeComponent();
         }
+
+        private void TapGestureRecognizers_Cadastrar(object sender, EventArgs e)
+        {
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new CadastrarDetail());
+        }
+
+                private void TapGestureRecognizers_Pesquisar(object sender, EventArgs e)
+        {
+            MasterDetailPage p = (MasterDetailPage)Application.Current.MainPage;
+            p.Detail = new NavigationPage(new ListarDetail());
+        }
     }
 }
